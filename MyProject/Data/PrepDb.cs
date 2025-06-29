@@ -18,8 +18,8 @@ public static class PrepDb
         if (!context.Orders.Any())
         {
             context.Orders.AddRange(
-                new Order { Name = "Order1" },
-                new Order { Name = "Order2" }
+                new Order { Name = "Order1", Description = "First Order", Price = 100 },
+                new Order { Name = "Order2", Description = "Second Order", Price = 200 }
             );
             
             context.SaveChanges();

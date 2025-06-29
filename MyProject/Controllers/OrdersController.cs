@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyProject.Data;
+using MyProject.Dtos;
+using MyProject.Extensions;
 using MyProject.Models;
 
 namespace MyProject.Controllers;
@@ -52,8 +54,10 @@ public class OrdersController(AppDbContext context) : ControllerBase
     }
     
     [HttpPost]
-    public async Task<ActionResult> CreateOrder(Order order)
+    public async Task<ActionResult> CreateOrder(OrderCreateDto orderCreateDto)
     {
+        var order = orderCreateDto.ToOrder();
+        
         context.Orders.Add(order);
         await context.SaveChangesAsync();
         
@@ -61,46 +65,36 @@ public class OrdersController(AppDbContext context) : ControllerBase
     }
     
     [HttpPut("{id}")]
-    public async Task<ActionResult> UpdateOrder(int id, Order order)
+    public async Task<ActionResult> UpdateOrder(int id, OrderPutDto orderPutDto)
     {
-        if (id != order.Id)
-        {
-            return BadRequest("Order ID mismatch.");
-        }
+        var order = await context.Orders.FindAsync(id);
         
-        var existingOrder = await context.Orders.FindAsync(id);
-        
-        if (existingOrder == null)
+        if (order == null)
         {
             return NotFound($"Order with id {id} not found.");
         }
         
-        existingOrder.Name = order.Name;
+        order.Name = orderPutDto.Name;
         
-        context.Orders.Update(existingOrder);
+        context.Orders.Update(order);
         await context.SaveChangesAsync();
         
         return NoContent();
     }
     
     [HttpPatch("{id}")]
-    public async Task<ActionResult> PatchOrder(int id, Order order)
+    public async Task<ActionResult> PatchOrder(int id, OrderPatchDto orderPatchDto)
     {
-        if (id != order.Id)
-        {
-            return BadRequest("Order ID mismatch.");
-        }
+        var order = await context.Orders.FindAsync(id);
         
-        var existingOrder = await context.Orders.FindAsync(id);
-        
-        if (existingOrder == null)
+        if (order == null)
         {
             return NotFound($"Order with id {id} not found.");
         }
         
-        existingOrder.Name = order.Name;
+        order.Price = orderPatchDto.Price;
         
-        context.Orders.Update(existingOrder);
+        context.Orders.Update(order);
         await context.SaveChangesAsync();
         
         return NoContent();

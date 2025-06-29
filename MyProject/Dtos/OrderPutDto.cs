@@ -1,8 +1,7 @@
-namespace MyProject.Models;
+namespace MyProject.Dtos;
 
-public class Order
+public class OrderPutDto
 {
-    public int Id { get; set; } 
     public string Name { get; set; }
     public string Description { get; set; }
     public decimal Price { get; set; }
