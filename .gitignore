@@ -3,8 +3,4 @@ obj/
 /packages/
 riderModule.iml
 /_ReSharper.Caches/
-/.idea/.idea.MyProject/.idea/indexLayout.xml
-/.idea/.idea.MyProject/.idea/projectSettingsUpdater.xml
-/.idea/.idea.MyProject/.idea/vcs.xml
-/.idea/.idea.MyProject/.idea/workspace.xml
-/.idea/config/applicationhost.config
+.idea/
