@@ -10,4 +10,11 @@ public class AppDbContext : DbContext
     }
     
     public DbSet<Order> Orders { get; set; }
+    
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Order>()
+            .Property(o => o.Price)
+            .HasPrecision(18,2);
+    }
 }

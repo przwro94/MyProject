@@ -3,6 +3,8 @@ using MyProject.Data;
 using MyProject.Repositories;
 using MyProject.Services;
 
+namespace MyProject;
+
 public class Program
 {
     public static void Main(string[] args)
@@ -12,8 +14,17 @@ public class Program
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
-        builder.Services.AddDbContext<AppDbContext>(opt =>
-            opt.UseInMemoryDatabase("WhateverNameYouWant"));
+        
+        var connectionString =
+            builder.Configuration.GetConnectionString("DefaultConnection")
+            ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
+        builder.Services.AddDbContext<AppDbContext>(options =>
+            options.UseSqlServer(connectionString));
+        
+        // builder.Services.AddDbContext<AppDbContext>(opt =>
+        //     opt.UseInMemoryDatabase("WhateverNameYouWant"));
+        
         builder.Services.AddScoped<IOrderRepository, OrderRepository>();
         builder.Services.AddScoped<IOrderService, OrderService>();
         
