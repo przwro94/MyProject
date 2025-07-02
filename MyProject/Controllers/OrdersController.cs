@@ -2,16 +2,16 @@ using Microsoft.AspNetCore.Mvc;
 using MyProject.Dtos;
 using MyProject.Extensions;
 using MyProject.Models;
-using MyProject.Repositories;
+using MyProject.Services;
 
 namespace MyProject.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class OrdersController(IOrderRepository orderRepository) : ControllerBase
+public class OrdersController(IOrderService orderService) : ControllerBase
 {
     private async Task<Order?> FindOrderAsync(int id)
-        => await orderRepository.GetOrderByIdAsync(id);
+        => await orderService.GetOrderByIdAsync(id);
 
     private ActionResult NotFoundMessage(int id)
         => NotFound($"Order with id {id} not found.");
@@ -19,7 +19,7 @@ public class OrdersController(IOrderRepository orderRepository) : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
     {
-        var orders = await orderRepository.GetAllOrdersAsync();
+        var orders = await orderService.GetAllOrdersAsync();
 
         if (!orders.Any())
             return NotFound("No orders found.");
@@ -42,8 +42,7 @@ public class OrdersController(IOrderRepository orderRepository) : ControllerBase
     {
         var order = orderCreateDto.ToOrder();
 
-        await orderRepository.CreateOrderAsync(order);
-        await orderRepository.SaveChangesAsync();
+        await orderService.CreateOrderAsync(order);
 
         return CreatedAtAction(nameof(GetOrder), new { id = order.Id }, order);
     }
@@ -56,8 +55,7 @@ public class OrdersController(IOrderRepository orderRepository) : ControllerBase
             return NotFoundMessage(id);
 
         order.Name = orderPutDto.Name;
-        await orderRepository.UpdateOrderAsync(order);
-        await orderRepository.SaveChangesAsync();
+        await orderService.UpdateOrderAsync(order);
 
         return NoContent();
     }
@@ -70,8 +68,7 @@ public class OrdersController(IOrderRepository orderRepository) : ControllerBase
             return NotFoundMessage(id);
 
         order.Price = orderPatchDto.Price;
-        await orderRepository.UpdateOrderAsync(order);
-        await orderRepository.SaveChangesAsync();
+        await orderService.UpdateOrderAsync(order);
 
         return NoContent();
     }
@@ -83,8 +80,7 @@ public class OrdersController(IOrderRepository orderRepository) : ControllerBase
         if (order is null)
             return NotFoundMessage(id);
 
-        await orderRepository.DeleteOrderAsync(id);
-        await orderRepository.SaveChangesAsync();
+        await orderService.DeleteOrderAsync(id);
 
         return NoContent();
     }
