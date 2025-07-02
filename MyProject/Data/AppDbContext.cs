@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using MyProject.Data.Configurations;
 using MyProject.Models;
 
 namespace MyProject.Data;
@@ -10,11 +11,11 @@ public class AppDbContext : DbContext
     }
     
     public DbSet<Order> Orders { get; set; }
+    public DbSet<OrderItem> OrderItems { get; set; }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Order>()
-            .Property(o => o.Price)
-            .HasPrecision(18,2);
+        modelBuilder.ApplyConfiguration(new OrderConfiguration());
+        modelBuilder.ApplyConfiguration(new OrderItemConfiguration());
     }
 }
