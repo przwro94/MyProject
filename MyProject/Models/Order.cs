@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-
 namespace MyProject.Models;
 
 public class Order
@@ -10,6 +6,6 @@ public class Order
     public string Name { get; set; }
     public string Description { get; set; }
     public decimal Price { get; set; }
-    
-    public ICollection<OrderItem> Items { get; set; }
+
+    public ICollection<OrderItem> Items { get; set; } = new List<OrderItem>();
 }
