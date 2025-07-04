@@ -1,8 +1,9 @@
-using MyProject.WebAPI.Models;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace MyProject.WebAPI.Data;
+namespace MyProject.Infrastructure.Persistence.Seeders;
 
-public static class PrepDb
+public static class DbSeeder
 {
     public static void PrepPopulation(IApplicationBuilder app)
     {

@@ -1,8 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using MyProject.WebAPI.Models;
 
-namespace MyProject.WebAPI.Data.Configurations;
+namespace MyProject.Infrastructure.Persistence.Configurations;
 
 public class OrderConfiguration : IEntityTypeConfiguration<Order>
 {
