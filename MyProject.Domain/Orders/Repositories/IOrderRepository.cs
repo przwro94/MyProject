@@ -1,6 +1,6 @@
-using MyProject.WebAPI.Models;
+using MyProject.Domain.Orders.Aggregates;
 
-namespace MyProject.WebAPI.Repositories;
+namespace MyProject.Domain.Orders.Repositories;
 
 public interface IOrderRepository
 {

@@ -1,8 +1,8 @@
-using MyProject.WebAPI.Models;
+using MyProject.Domain.Orders.Aggregates;
 
-namespace MyProject.WebAPI.Services;
+namespace MyProject.Domain.Orders.Services;
 
-public interface IOrderService
+public interface IOrderDomainService
 {
     Task<IEnumerable<Order>> GetAllOrdersAsync();
     Task<Order?> GetOrderByIdAsync(int id);
