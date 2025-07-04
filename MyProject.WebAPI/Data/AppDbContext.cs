@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using MyProject.Data.Configurations;
-using MyProject.Models;
+using MyProject.WebAPI.Data.Configurations;
+using MyProject.WebAPI.Models;
 
-namespace MyProject.Data;
+namespace MyProject.WebAPI.Data;
 
 public class AppDbContext : DbContext
 {

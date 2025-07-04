@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using MyProject.Dtos;
-using MyProject.Extensions;
-using MyProject.Models;
-using MyProject.Services;
+using MyProject.WebAPI.Extensions;
+using MyProject.WebAPI.Dtos;
+using MyProject.WebAPI.Models;
+using MyProject.WebAPI.Services;
 
-namespace MyProject.Controllers;
+namespace MyProject.WebAPI.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

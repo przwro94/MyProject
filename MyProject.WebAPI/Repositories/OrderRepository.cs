@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using MyProject.Data;
-using MyProject.Models;
+using MyProject.WebAPI.Data;
+using MyProject.WebAPI.Models;
 
-namespace MyProject.Repositories;
+namespace MyProject.WebAPI.Repositories;
 
 public class OrderRepository(AppDbContext context) : IOrderRepository
 {

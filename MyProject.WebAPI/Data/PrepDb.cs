@@ -1,6 +1,6 @@
-using MyProject.Models;
+using MyProject.WebAPI.Models;
 
-namespace MyProject.Data;
+namespace MyProject.WebAPI.Data;
 
 public static class PrepDb
 {

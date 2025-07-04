@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyProject", "MyProject\MyProject.csproj", "{B678B913-B3E5-42D1-86E3-53166DA57E47}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyProject.WebAPI", "MyProject.WebAPI\MyProject.WebAPI.csproj", "{B678B913-B3E5-42D1-86E3-53166DA57E47}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyProject.Tests", "MyProject.Tests\MyProject.Tests.csproj", "{720569E2-9492-4E77-965B-C38D2962C609}"
 EndProject

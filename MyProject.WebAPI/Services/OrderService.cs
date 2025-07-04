@@ -1,7 +1,7 @@
-using MyProject.Models;
-using MyProject.Repositories;
+using MyProject.WebAPI.Models;
+using MyProject.WebAPI.Repositories;
 
-namespace MyProject.Services;
+namespace MyProject.WebAPI.Services;
 
 public class OrderService(IOrderRepository repo) : IOrderService
 {

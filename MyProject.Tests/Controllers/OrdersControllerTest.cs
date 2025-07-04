@@ -1,13 +1,14 @@
-using MyProject.Controllers;
-using MyProject.Models;
-using MyProject.Repositories;
+using MyProject.WebAPI.Controllers;
+using MyProject.WebAPI.Models;
+using MyProject.WebAPI.Repositories;
 using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Net;
 using Microsoft.AspNetCore.Mvc.Testing;
-using MyProject.Services;
+using MyProject.WebAPI;
+using MyProject.WebAPI.Services;
 
 namespace MyProject.Tests.Controllers;
 

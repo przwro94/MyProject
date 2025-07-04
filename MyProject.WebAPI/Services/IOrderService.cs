@@ -1,6 +1,6 @@
-using MyProject.Models;
+using MyProject.WebAPI.Models;
 
-namespace MyProject.Services;
+namespace MyProject.WebAPI.Services;
 
 public interface IOrderService
 {

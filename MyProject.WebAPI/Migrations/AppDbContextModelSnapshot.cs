@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using MyProject.Data;
+using MyProject.WebAPI.Data;
 
 #nullable disable
 
-namespace MyProject.Migrations
+namespace MyProject.WebAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot
@@ -21,7 +21,7 @@ namespace MyProject.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("MyProject.Models.Order", b =>
+            modelBuilder.Entity("MyProject.WebAPI.Models.Order", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -46,7 +46,7 @@ namespace MyProject.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("MyProject.Models.OrderItem", b =>
+            modelBuilder.Entity("MyProject.WebAPI.Models.OrderItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -75,9 +75,9 @@ namespace MyProject.Migrations
                     b.ToTable("OrderItems");
                 });
 
-            modelBuilder.Entity("MyProject.Models.OrderItem", b =>
+            modelBuilder.Entity("MyProject.WebAPI.Models.OrderItem", b =>
                 {
-                    b.HasOne("MyProject.Models.Order", "Order")
+                    b.HasOne("MyProject.WebAPI.Models.Order", "Order")
                         .WithMany("Items")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -86,7 +86,7 @@ namespace MyProject.Migrations
                     b.Navigation("Order");
                 });
 
-            modelBuilder.Entity("MyProject.Models.Order", b =>
+            modelBuilder.Entity("MyProject.WebAPI.Models.Order", b =>
                 {
                     b.Navigation("Items");
                 });

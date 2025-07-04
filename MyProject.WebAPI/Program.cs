@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using MyProject.Data;
-using MyProject.Repositories;
-using MyProject.Services;
+using MyProject.WebAPI.Data;
+using MyProject.WebAPI.Repositories;
+using MyProject.WebAPI.Services;
 
-namespace MyProject;
+namespace MyProject.WebAPI;
 
 public class Program
 {

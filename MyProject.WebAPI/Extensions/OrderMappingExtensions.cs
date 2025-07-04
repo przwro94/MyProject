@@ -1,7 +1,7 @@
-using MyProject.Dtos;
-using MyProject.Models;
+using MyProject.WebAPI.Dtos;
+using MyProject.WebAPI.Models;
 
-namespace MyProject.Extensions;
+namespace MyProject.WebAPI.Extensions;
 
 public static class OrderMappingExtensions
 {

@@ -1,4 +1,4 @@
-namespace MyProject.Dtos;
+namespace MyProject.WebAPI.Dtos;
 
 public class OrderPatchDto
 {

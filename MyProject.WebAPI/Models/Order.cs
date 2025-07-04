@@ -1,4 +1,4 @@
-namespace MyProject.Models;
+namespace MyProject.WebAPI.Models;
 
 public class Order
 {
